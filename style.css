@@ -2,27 +2,25 @@ img {
   width: 100%;
 }
 
-
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background-color: orange;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    padding: 1rem 1.5rem;
-
+  background-color: orange;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  padding: 1rem 1.5rem;
 }
 
 h1 {
-    color: darkred;
+  color: darkred;
 }
 
 h2 {
-margin: 1rem;
+  margin: 1rem;
 }
 
 article {
@@ -34,4 +32,9 @@ article {
 section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.valgt {
+  background-color: red;
+  border-radius: 5px;
 }
