@@ -12,17 +12,20 @@
     <header>
       <h1>Babushka</h1>
       <nav>
-        <button data-kategori="alle">Alle</button>
-        <button data-kategori="forretter" class="valgt">forretter</button>
+        <button data-kategori="alle" class="valgt">Alle</button>
+        <button data-kategori="forretter">forretter</button>
         <button data-kategori="hovedretter">hovedretter</button>
         <button data-kategori="desserter">desserter</button>
         <button data-kategori="sideorders">sideorders</button>
-        <button data-kategori="drikkevarer">sideorders</button>
+        <button data-kategori="drikkevarer">drikkevarer</button>
       </nav>
     </header>
 
     <h2>Menu</h2>
+    <h3>Alle</h3>
+
     <section></section>
+
     <template>
       <article>
         <img src="" alt="" />
@@ -40,7 +43,8 @@
       let container;
       let temp;
       let retter;
-      let filter = "hovedretter";
+      let filter = "alle";
+      const kategoriOverskrift = document.querySelector("h3");
 
       const url = "https://babushka-dd8a.restdb.io/rest/menu";
 
@@ -53,10 +57,21 @@
       document.addEventListener("DOMContentLoaded", start);
 
       function start() {
-        container = document.querySelector("section");
-        temp = document.querySelector("template").content;
+        const filterKnapper = document.querySelectorAll("nav button");
+
+        filterKnapper.forEach((knap) =>
+          knap.addEventListener("click", filtrerRetter)
+        );
 
         hentdata();
+
+        function filtrerRetter() {
+          filter = this.dataset.kategori; //saet variabel "filter" til vaerdien af data-troende på den knap der er klikket på.
+
+          vis(retter); // kald funktionen visPersoner efter det nye filter er sat paa
+          kategoriOverskrift.textContent = this.textContent;
+          console.log(this);
+        }
 
         async function hentdata() {
           const response = await fetch(url, options);
@@ -65,10 +80,14 @@
         }
 
         function vis(retter) {
-          retter.forEach((ret) => {
-            console.log(retter);
+          container = document.querySelector("section");
+          temp = document.querySelector("template").content;
+          container.textContent = ""; //ryd container inden ny loop
 
-            if (filter == ret.kategori) {
+          retter.forEach((ret) => {
+            console.log("kategori", ret.kategori);
+
+            if (filter == ret.kategori || filter == "alle") {
               let klon = temp.cloneNode(true);
 
               klon.querySelector("h3").textContent = ret.navn;
