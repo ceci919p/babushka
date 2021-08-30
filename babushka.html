@@ -68,6 +68,10 @@
         function filtrerRetter() {
           filter = this.dataset.kategori; //saet variabel "filter" til vaerdien af data-troende på den knap der er klikket på.
 
+          document.querySelector(".valgt").classList.remove("valgt"); //fjern klassen fra knappen der bliver trykket på
+
+          this.classList.add("valgt"); //marker den knap der bliver trykket på
+
           vis(retter); // kald funktionen visPersoner efter det nye filter er sat paa
           kategoriOverskrift.textContent = this.textContent;
           console.log(this);
