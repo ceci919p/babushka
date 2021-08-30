@@ -4,47 +4,82 @@
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Menu</title>
   </head>
   <body>
     <header>
-      <h1>Babushka</h1>
-      <nav>
-        <button data-kategori="alle" class="valgt">Alle</button>
-        <button data-kategori="forretter">forretter</button>
-        <button data-kategori="hovedretter">hovedretter</button>
-        <button data-kategori="desserter">desserter</button>
-        <button data-kategori="sideorders">sideorders</button>
-        <button data-kategori="drikkevarer">drikkevarer</button>
-      </nav>
+      <div class="logo">
+        <img src="icon.png" alt="logo" />
+      </div>
+      <div>
+        <h1>BISTRO BABUSHKA</h1>
+        <p>- til dig der ønsker en unik madoplevelse</p>
+      </div>
     </header>
 
-    <h2>Menu</h2>
-    <h3>Alle</h3>
+    <main>
+      <div class="logo2">
+        <img src="icon2.png" alt="babushka" />
+      </div>
+      <h2>Menu</h2>
+      <div class="sideOverskrift">
+        <p>Klik på kategorierne for at se vores udvalg.</p>
+      </div>
+      <br />
+      <nav>
+        <button data-kategori="alle" class="valgt">Alle</button>
+        <button data-kategori="forretter">Forretter</button>
+        <button data-kategori="hovedretter">Hovedretter</button>
+        <button data-kategori="desserter">Desserter</button>
+        <button data-kategori="sideorders">Sideorders</button>
+        <button data-kategori="drikkevarer">Drikkevarer</button>
+      </nav>
+      <h3 class="underoverskrift">Alle</h3>
 
-    <section></section>
+      <section></section>
 
-    <template>
-      <article>
-        <img src="" alt="" />
-        <h3 class="navn"></h3>
-        <p class="kategori"></p>
-        <p class="kortbeskrivelse"></p>
-        <p class="langbeskrivelse"></p>
+      <template>
+        <article>
+          <img src="" alt="" />
+          <h3 class="navn"></h3>
+          <p class="kategori"></p>
+          <p class="kortbeskrivelse"></p>
+          <p class="langbeskrivelse"></p>
 
-        <p class="oprindelsesregion"></p>
-        <p class="pris"></p>
-      </article>
-    </template>
+          <p class="oprindelsesregion"></p>
+          <p class="pris"></p>
+        </article>
+      </template>
+    </main>
+
+    <footer>
+      <address>
+        <p>Adresse:</p>
+        <p>Grønnegade 97</p>
+        <p>1234 København K</p>
+      </address>
+      <div class="aabningstider">
+        <p>Åbningstider:</p>
+        <p>Mandag - fredag 10:30 - 22:00</p>
+        <p>Lørdag 12:00 - 23:00</p>
+      </div>
+    </footer>
 
     <script>
       let container;
       let temp;
       let retter;
       let filter = "alle";
-      const kategoriOverskrift = document.querySelector("h3");
+      const kategoriOverskrift = document.querySelector(".underoverskrift");
 
       const url = "https://babushka-dd8a.restdb.io/rest/menu";
 
