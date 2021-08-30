@@ -17,6 +17,10 @@ header {
 
 }
 
+h1 {
+    color: darkred;
+}
+
 h2 {
 margin: 1rem;
 }
