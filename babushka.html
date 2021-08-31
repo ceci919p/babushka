@@ -45,7 +45,21 @@
       </nav>
       <h3 class="underoverskrift">Alle</h3>
 
-      <section></section>
+      <section id="popup">
+        <article>
+          <button>X</button>
+          <img src="" alt="" />
+          <h2 class="navn"></h2>
+          <p>kategori:<span class="kategori"></span></p>
+          <p><span class="kortbeskrivelse"></span></p>
+          <p><span class="langbeskrivelse"></span></p>
+
+          <p>Oprindelsesregion:<span class="oprindelsesregion"></span></p>
+          <p>Pris:<span class="pris"></span></p>
+        </article>
+      </section>
+
+      <section class="liste"></section>
 
       <template>
         <article>
@@ -56,17 +70,17 @@
           <p class="langbeskrivelse"></p>
 
           <p class="oprindelsesregion"></p>
-          <p class="pris"></p>
+          <p class="pris">Pris:</p>
         </article>
       </template>
     </main>
 
     <footer>
-      <address>
+      <div class="adresse">
         <p>Adresse:</p>
         <p>Grønnegade 97</p>
         <p>1234 København K</p>
-      </address>
+      </div>
       <div class="aabningstider">
         <p>Åbningstider:</p>
         <p>Mandag - fredag 10:30 - 22:00</p>
@@ -119,7 +133,7 @@
         }
 
         function vis(retter) {
-          container = document.querySelector("section");
+          container = document.querySelector(".liste");
           temp = document.querySelector("template").content;
           container.textContent = ""; //ryd container inden ny loop
 
@@ -136,16 +150,49 @@
 
               klon.querySelector(".kortbeskrivelse").textContent =
                 ret.kortbeskrivelse;
-              klon.querySelector(".langbeskrivelse").textContent =
-                ret.langbeskrivelse;
-              klon.querySelector(".oprindelsesregion").textContent =
-                ret.oprindelsesregion;
-              klon.querySelector(".pris").textContent = ret.pris + " " + ",-";
+              /* klon.querySelector(".langbeskrivelse").textContent =
+                ret.langbeskrivelse; */
+              /*klon.querySelector(".oprindelsesregion").textContent =
+                ret.oprindelsesregion; */
+              klon.querySelector(".pris").textContent +=
+                " " + ret.pris + " " + ",-";
+              klon
+                .querySelector("article")
+                .addEventListener("click", () => visDetaljer(ret));
 
-              console.log(klon);
+              console.log(ret);
               container.appendChild(klon);
             }
           });
+        }
+
+        document
+          .querySelector("#popup button")
+          .addEventListener("click", lukPopup);
+
+        function lukPopup() {
+          document.querySelector("#popup").style.display = "none";
+        }
+
+        function visDetaljer(ret) {
+          const popup = document.querySelector("#popup");
+          popup.style.display = "block";
+          popup.querySelector("#popup h2").textContent = ret.navn;
+          popup.querySelector("img").src =
+            "medium/" + ret.billednavn + "-md.jpg";
+
+          popup.querySelector(".kategori").textContent = " " + ret.kategori;
+
+          popup.querySelector(".langbeskrivelse").textContent =
+            " " + ret.langbeskrivelse;
+
+          popup.querySelector(".oprindelsesregion").textContent =
+            " " + ret.oprindelsesregion;
+
+          popup.querySelector(".pris").textContent =
+            " " + ret.pris + " " + ",-";
+
+          console.log(ret);
         }
       }
     </script>
