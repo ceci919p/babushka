@@ -17,6 +17,7 @@ body {
   width: 100px;
   border-radius: 5px;
   grid-column: 2/3;
+  margin: 1rem;
 }
 
 header {
@@ -30,19 +31,19 @@ header {
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.3);
 }
 
-button {
+nav button {
   background-color: #3895ac;
-  border-radius: 5px 5px 0 0px;
   border: none;
   color: white;
-  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
   font-family: "Raleway", sans-serif;
+  padding: 10px 10px;
+  font-size: 13px;
+  border-radius: 5px;
 }
 
 main {
@@ -55,12 +56,16 @@ main > section {
   grid-column: 2/3;
 }
 
+footer div {
+  margin-top: 3rem;
+}
+
 footer {
   background-color: #3895ac;
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
+
+  text-align: center;
+  margin-top: 2rem;
+  padding-block: 1rem;
 }
 
 h1 {
@@ -99,6 +104,7 @@ article {
   margin: 1rem;
   padding: 1rem;
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 section {
@@ -108,4 +114,54 @@ section {
 
 .valgt {
   background-color: darkred;
+}
+
+#popup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: #00000099;
+  padding-block: 2em;
+  display: none;
+  overflow: scroll;
+}
+
+#popup h2 {
+  margin: 0;
+}
+
+#popup article {
+  background-color: white;
+  width: 85%;
+  margin: auto;
+}
+
+#popup button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+@media (min-width: 500px) {
+  #popup article {
+    width: 50%;
+  }
+
+  nav button {
+    padding: 15px 32px;
+    font-size: 16px;
+    border-radius: 5px 5px 0 0px;
+  }
+
+  footer {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+  }
 }
