@@ -8,16 +8,46 @@ body {
   background-color: #e7e6e1;
 }
 
-.logo {
-  width: 100px;
-  border-radius: 5px;
+main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1200px) auto;
+  align-items: center;
 }
 
-.logo2 {
-  width: 100px;
-  border-radius: 5px;
+main > section {
   grid-column: 2/3;
-  margin: 1rem;
+}
+
+h1 {
+  color: darkred;
+  font-family: "Russo One", sans-serif;
+  font-size: 1.5em;
+}
+
+h2,
+.underoverskrift {
+  margin-bottom: 0;
+  margin-inline: 1rem;
+  grid-column: 2/3;
+  font-family: "Russo One", sans-serif;
+  font-size: 1.4em;
+}
+
+.sideOverskrift {
+  grid-column: 2/3;
+  margin-inline: 1rem;
+}
+
+h3 {
+  font-family: "Russo One", sans-serif;
+  grid-column: 2/3;
+  font-size: 1.2em;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+  grid-column: 2/3;
+  font-size: 1em;
 }
 
 header {
@@ -31,6 +61,16 @@ header {
   box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.3);
 }
 
+header .logo {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+header .logo img {
+  width: 100px;
+  display: inline;
+}
+
 nav button {
   background-color: #3895ac;
   border: none;
@@ -38,26 +78,16 @@ nav button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 4px 2px;
+  margin: 0.2rem 0.1rem;
   cursor: pointer;
   font-family: "Raleway", sans-serif;
-  padding: 10px 10px;
-  font-size: 13px;
+  padding: 0.7rem;
+  font-size: 1em;
   border-radius: 5px;
 }
 
-main {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1200px) auto;
-  align-items: center;
-}
-
-main > section {
-  grid-column: 2/3;
-}
-
 footer div {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 footer {
@@ -68,30 +98,32 @@ footer {
   padding-block: 1rem;
 }
 
-h1 {
-  color: darkred;
-  font-family: "Russo One", sans-serif;
+.firmacontainer {
+  grid-column: 2/3;
 }
 
-h2,
-.underoverskrift {
+.firmanavn {
+  display: grid;
+  grid-template-columns: 1fr auto auto 1fr;
+}
+
+.firmanavn div {
+  grid-column: 2/3;
+}
+
+.firmanavn .logo2 {
+  grid-column: 3/4;
+  width: 100px;
+  margin: 1rem;
+  display: none;
+}
+
+.firmanavn div p {
+  margin: 0.5rem;
+}
+
+.firmanavn div h1 {
   margin-bottom: 0;
-  margin-inline: 1rem;
-  grid-column: 2/3;
-  font-family: "Russo One", sans-serif;
-}
-
-.sideOverskrift {
-  grid-column: 2/3;
-  margin-inline: 1rem;
-}
-
-h3 {
-  font-family: "Russo One", sans-serif;
-}
-
-p {
-  font-family: "Raleway", sans-serif;
 }
 
 nav {
@@ -148,14 +180,27 @@ section {
 }
 
 @media (min-width: 500px) {
-  #popup article {
-    width: 50%;
+  h1 {
+    font-size: 2em;
+  }
+
+  .firmanavn .logo2 {
+    display: block;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: auto 1fr;
   }
 
   nav button {
-    padding: 15px 32px;
-    font-size: 16px;
+    padding: 1rem 1.4rem;
+    font-size: 1em;
     border-radius: 5px 5px 0 0px;
+  }
+
+  #popup article {
+    width: 65%;
   }
 
   footer {
@@ -163,5 +208,19 @@ section {
     display: flex;
     justify-content: space-around;
     gap: 1rem;
+  }
+
+  footer div {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  #popup article {
+    width: 40%;
+  }
+
+  nav button {
+    padding: 1rem 2rem;
   }
 }
